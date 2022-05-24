@@ -1,0 +1,44 @@
+﻿@model PedidosPendientesViewModel
+@{
+    ViewData["Title"] = "Pedidos pendientes";
+}
+@section Scripts{ 
+    <script src="~/js/PedidosPendientes.js"></script>
+}
+
+<h1 class="d-flex justify-content-center">Pedidos pendientes</h1>
+<br />
+
+<table id="pendientes">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Descripcion</th>
+            <th>Costo</th>
+            <th>Destino</th>
+            <th>Repartidor</th>
+            <th>Estatus</th>
+            <th>Marcar como</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (Vpedido pendiente in Model.Pendientes)
+        {
+        <tr>
+            <td>@pendiente.IdPedido</td>
+            <td>@pendiente.Descripcion</td>
+            <td>@pendiente.Costo</td>
+            <td>@pendiente.Calle @pendiente.Numero @pendiente.Colonia</td>
+            <td>@pendiente.IdRepartidor @pendiente.Nombre @pendiente.Paterno @pendiente.Materno</td>
+            <td>@pendiente.Estatus @pendiente.DescEst</td>
+            <td>
+                <input  type="button" value="Recolectado" onclick="cambiarEstatus(@pendiente.IdPedido, 2)" class="btn btn-warning" >
+                <input type="button" value="Entregado" onclick="cambiarEstatus(@pendiente.IdPedido, 3)" class="btn btn-warning">
+                <input type="button" value="Cancelado" onclick="cambiarEstatus(@pendiente.IdPedido, 4)" class="btn btn-warning">
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>

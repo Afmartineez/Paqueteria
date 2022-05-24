@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Paqueteria.Models.dbModels.Municipio>
+
+@{
+    ViewData["Title"] = "Ciudades";
+}
+@section Scripts{
+    <script src="~/js/Municipios.js"></script>
+}
+
+<h1>Lista de ciudades</h1>
+
+<p>
+    <a asp-action="Create">Da de alta una ciudad</a>
+</p>
+<table class="table" id="ciudades">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    
+                    <a asp-action="Edit" asp-route-id="@item.IdMunicipio">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdMunicipio">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdMunicipio">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,57 @@
+﻿@model Paqueteria.Models.dbModels.Repartidore
+
+@{
+    ViewData["Title"] = "Borrar";
+}
+
+<h1>Borrar repartidor</h1>
+
+<h3>¿Esta seguró que desea borrar ese repartidor?</h3>
+<div>
+    <h4>Repartidor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Paterno)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Paterno)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Materno)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Materno)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Contraseña)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdRepartidor" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar a la lista principal</a>
+    </form>
+</div>

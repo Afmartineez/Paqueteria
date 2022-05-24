@@ -1,0 +1,47 @@
+﻿@model ProgramarPedidoViewModel
+@{
+    ViewData["Title"] = "Programar pedido";
+}
+
+<h1>Programar pedidos</h1>
+
+
+<form method="post" asp-controller="Home" asp-action="ProgramarPedido" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Descripcion"></label>
+        <input asp-for="Descripcion" class="form-control">
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Costo"></label>
+        <input asp-for="Costo" class="form-control">
+        <span asp-validation-for="Costo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Calle"></label>
+        <input asp-for="Calle" class="form-control">
+        <span asp-validation-for="Calle" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Numero"></label>
+        <input asp-for="Numero" class="form-control">
+        <span asp-validation-for="Numero" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Colonia"></label>
+        <input asp-for="Colonia" class="form-control">
+        <span asp-validation-for="Colonia" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Municipio"></label>
+        <select asp-for="Municipio" asp-items="Model.Municipios" class="form-control"></select>
+        <span asp-validation-for="Municipio" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Id_repartidor"></label>
+        <select asp-for="Id_repartidor" asp-items="Model.Repartidores" class="form-control"></select>
+        <span asp-validation-for="Id_repartidor" class="text-danger"></span>
+    </div>
+    <button type="submit" id="pedido">Programar pedido</button>
+</form>

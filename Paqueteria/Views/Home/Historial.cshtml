@@ -1,0 +1,40 @@
+﻿@model PedidosPendientesViewModel
+@{
+    ViewData["Title"] = "Historial";
+}
+@section Scripts{ 
+    <script src="~/js/Historial.js"></script>
+}
+
+<h1 class="d-flex justify-content-center">Historial de pedidos</h1><br>
+
+<table id="historial">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Descripcion</th>
+            <th>Costo</th>
+            <th>Destino</th>
+            <th>Repartidor</th>
+            <th>Estatus final</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Vpedido pendiente in Model.Pendientes)
+        {
+            <tr>
+                <td>@pendiente.IdPedido</td>
+                <td>@pendiente.Descripcion</td>
+                <td>@pendiente.Costo</td>
+                <td>@pendiente.Calle @pendiente.Numero @pendiente.Colonia</td>
+                <td>@pendiente.IdRepartidor @pendiente.Nombre @pendiente.Paterno @pendiente.Materno</td>
+                <td>@pendiente.Estatus @pendiente.DescEst</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table><br>
+
+<input type="button" value="Eliminar historial" onclick="eliminarHistorial()" class="d-flex justify-content-center btn btn-warning" >
